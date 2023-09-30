@@ -4,11 +4,15 @@ package edu.uoc.ds.adt;
 import edu.uoc.ds.adt.sequential.Queue;
 import edu.uoc.ds.adt.sequential.QueueArrayImpl;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class PR0Queue {
 
     public final int CAPACITY = 10;
 
-    private Queue<Character> queue;
+   //Changed to LocalDate
+    private Queue<LocalDate> queue;
 
     public PR0Queue() {
         newQueue();
@@ -18,20 +22,37 @@ public class PR0Queue {
     }
 
 
+    //TODO
     public String clearFullQueue() {
         StringBuilder sb = new StringBuilder();
-        char r;
+        // This is not used: char r;
         while (!queue.isEmpty()) {
-            sb.append(queue.poll()).append(" ");
+            /// TEST
+            DateTimeFormatter pattern = DateTimeFormatter.ofPattern("dd/MM");
+            //System.out.println(queue.poll().format(pattern));
+            sb.append(queue.poll().format(pattern)).append(" ");
+            ///
+            // ORIGINAL: sb.append(queue.poll()).append(" ");
         }
+        /// TEST
+        System.out.println("clearFullQueue to return: " + sb.toString());
+        ///
         return sb.toString();
     }
 
-    public Queue<Character> getQueue() {
+    //Changed to LocalDate
+    public Queue<LocalDate> getQueue() {
         return this.queue;
     }
 
-    public void add(Character c) {
-        this.queue.add(c);
+    //Changed parameter to LocalDate type
+    public void add(LocalDate d) {
+        ///
+        System.out.println("Size before add: " + this.queue.size());
+        ///
+        this.queue.add(d);
+        ///
+        System.out.println("Size after add: " + this.queue.size());
+        ///
     }
 }
