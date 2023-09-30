@@ -3,16 +3,22 @@ package edu.uoc.ds.adt;
 import org.junit.After;
 import org.junit.Before;
 
+import java.time.LocalDate;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class PR0StackTest {
 
+    //For setting initial date
+    public final LocalDate INITDATE = LocalDate.of(2023, 9, 28);
     PR0Stack pr0q;
 
+    // Changed filler loop to LocalDate
     private void fillStack() {
-        for (char c = '0'; c < '9'; c++) {
-            pr0q.push(Character.valueOf(c));
+        pr0q.push(INITDATE);
+        for (int i = 1; i < pr0q.CAPACITY; i++) {
+            pr0q.push(INITDATE.plusDays(2*i));
         }
     }
 
@@ -34,9 +40,12 @@ public class PR0StackTest {
     @org.junit.Test
     public void stackTest() {
 
-        assertEquals(this.pr0q.CAPACITY-1, this.pr0q.getStack().size());
+        // Changed to CAPACITY for working with 10 elements, not 9 as original
+        assertEquals(this.pr0q.CAPACITY, this.pr0q.getStack().size());
 
-        assertEquals(this.pr0q.clearAllStack(), new String("8 7 6 5 4 3 2 1 0 "));
+        // Changed string content to match expected result
+        assertEquals(this.pr0q.clearAllStack(), new String(
+                "16/10 14/10 12/10 10/10 08/10 06/10 04/10 02/10 30/09 28/09 "));
 
         assertEquals(0, this.pr0q.getStack().size());
     }
