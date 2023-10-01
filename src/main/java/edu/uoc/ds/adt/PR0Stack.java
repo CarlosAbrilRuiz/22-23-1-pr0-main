@@ -21,7 +21,6 @@ public class PR0Stack {
         stack = new StackArrayImpl<>(CAPACITY);
     }
 
-
     public String clearAllStack() {
         StringBuilder sb = new StringBuilder();
         while (!stack.isEmpty()) {

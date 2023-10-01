@@ -21,22 +21,13 @@ public class PR0Queue {
         queue = new QueueArrayImpl<>(CAPACITY);
     }
 
-
-    //TODO
     public String clearFullQueue() {
         StringBuilder sb = new StringBuilder();
         // This is not used: char r;
         while (!queue.isEmpty()) {
-            /// TEST
             DateTimeFormatter pattern = DateTimeFormatter.ofPattern("dd/MM");
-            //System.out.println(queue.poll().format(pattern));
             sb.append(queue.poll().format(pattern)).append(" ");
-            ///
-            // ORIGINAL: sb.append(queue.poll()).append(" ");
         }
-        /// TEST
-        System.out.println("clearFullQueue to return: " + sb.toString());
-        ///
         return sb.toString();
     }
 
@@ -47,12 +38,6 @@ public class PR0Queue {
 
     //Changed parameter to LocalDate type
     public void add(LocalDate d) {
-        ///
-        System.out.println("Size before add: " + this.queue.size());
-        ///
         this.queue.add(d);
-        ///
-        System.out.println("Size after add: " + this.queue.size());
-        ///
     }
 }
