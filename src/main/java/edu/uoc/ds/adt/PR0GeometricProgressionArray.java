@@ -33,6 +33,12 @@ public class PR0GeometricProgressionArray {
         return this.array;
     }
 
+    /***********************************************************************
+     * Los métodos siguientes están basados en el código publicado en:
+     * "Binary Search in Java", java T point, consultado en octubre de 2023
+     * https://www.javatpoint.com/binary-search-in-java
+     ***********************************************************************/
+
     // Standard implementation
     public int binarySearch(int srch) {
         int[] arr = this.getArray();

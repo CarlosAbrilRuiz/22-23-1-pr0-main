@@ -50,13 +50,30 @@ public class PR0GeometricProgressionArrayTest {
 
     @org.junit.Test
     public void binarySearchArray() {
+        /********************************************
+        /*** Option A: changed all calls to binarySearch
+        /* instead of binarySearch2
+        /*******************************************/
         int index = this.pr0Array.binarySearch(65);
         assertEquals(-1, index);
         index = this.pr0Array.binarySearch(256);
         assertEquals(7, index);
+        index = this.pr0Array.binarySearch(41);
+        assertEquals(-1, index);
+        index = this.pr0Array.binarySearch(512);
+        assertEquals(8, index);
+
+        /********************************************
+        /*** Option B: kept calls as they were and
+        / implemented two different methods in class
+        /********************************************
+        int index = this.pr0Array.binarySearch2(65);
+        assertEquals(-1, index);
+        index = this.pr0Array.binarySearch2(256);
+        assertEquals(7, index);
         index = this.pr0Array.binarySearch2(41);
         assertEquals(-1, index);
         index = this.pr0Array.binarySearch2(512);
-        assertEquals(8, index);
+        assertEquals(8, index);*/
     }
 }

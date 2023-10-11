@@ -10,7 +10,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class PR0StackTest {
 
-    //For setting initial date
+    // For setting initial date
     public final LocalDate INITDATE = LocalDate.of(2023, 9, 28);
     PR0Stack pr0q;
 
@@ -28,7 +28,6 @@ public class PR0StackTest {
 
         assertNotNull(this.pr0q.getStack());
         this.fillStack();
-
     }
 
     @After

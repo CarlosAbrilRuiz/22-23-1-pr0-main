@@ -10,7 +10,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class PR0QueueTest {
 
-    //For setting initial date
+    // For setting initial date
     public final LocalDate INITDATE = LocalDate.of(2023, 9, 28);
     PR0Queue pr0q;
 
@@ -18,16 +18,13 @@ public class PR0QueueTest {
     private void fillQueue() {
         pr0q.add(INITDATE);
         for (int i = 1; i < pr0q.CAPACITY; i++) {
-            ///
-            System.out.println("Iterating i = " + i);
-            ///
             pr0q.add(INITDATE.plusDays(2*i));
         }
     }
+
     @Before
     public void setUp() {
         this.pr0q = new PR0Queue();
-
         assertNotNull(this.pr0q.getQueue());
         fillQueue();
     }
@@ -36,7 +33,6 @@ public class PR0QueueTest {
     public void release() {
         this.pr0q = null;
     }
-
 
     @org.junit.Test
     public void queueTest() {
@@ -49,5 +45,4 @@ public class PR0QueueTest {
 
         assertEquals(0, this.pr0q.getQueue().size());
     }
-
 }
