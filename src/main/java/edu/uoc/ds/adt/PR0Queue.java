@@ -4,11 +4,15 @@ package edu.uoc.ds.adt;
 import edu.uoc.ds.adt.sequential.Queue;
 import edu.uoc.ds.adt.sequential.QueueArrayImpl;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class PR0Queue {
 
     public final int CAPACITY = 10;
 
-    private Queue<Character> queue;
+   //Changed to LocalDate
+    private Queue<LocalDate> queue;
 
     public PR0Queue() {
         newQueue();
@@ -17,21 +21,23 @@ public class PR0Queue {
         queue = new QueueArrayImpl<>(CAPACITY);
     }
 
-
     public String clearFullQueue() {
         StringBuilder sb = new StringBuilder();
-        char r;
+        // This is not used: char r;
         while (!queue.isEmpty()) {
-            sb.append(queue.poll()).append(" ");
+            DateTimeFormatter pattern = DateTimeFormatter.ofPattern("dd/MM");
+            sb.append(queue.poll().format(pattern)).append(" ");
         }
         return sb.toString();
     }
 
-    public Queue<Character> getQueue() {
+    //Changed to LocalDate
+    public Queue<LocalDate> getQueue() {
         return this.queue;
     }
 
-    public void add(Character c) {
-        this.queue.add(c);
+    //Changed parameter to LocalDate type
+    public void add(LocalDate d) {
+        this.queue.add(d);
     }
 }
